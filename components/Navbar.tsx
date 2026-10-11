@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import AuthButtons from './AuthButtons';
 import BanglaDate from './BanglaDate';
-import type { Category } from '../../lib/types';
+import type { Category } from '@/lib/types';
 
 export default function Navbar({ categories }: { categories: Category[] }) {
   const pathname = usePathname();
