@@ -6,7 +6,6 @@ import { MongoClient } from "mongodb";
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
 const uri = process.env.MONGODB_URL || "mongodb://127.0.0.1:27017";
-console.log("UU", uri);
 const globalForMongo = globalThis as typeof globalThis & {
   _bazarMongoClient?: MongoClient;
 };
