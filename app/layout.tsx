@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Noto_Sans_Bengali } from 'next/font/google';
-import { getCategories } from '../lib/api';
-import Navbar from './components/Navbar';
+import { Toaster } from 'react-hot-toast';
+import Navbar from '@/components/Navbar';
+import PriceTicker from '@/components/PriceTicker';
+import Footer from '@/components/Footer';
+import { getCategories, getProducts } from '@/lib/api';
 import './globals.css';
 
 const notoBengali = Noto_Sans_Bengali({
@@ -21,12 +24,18 @@ export default async function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   const categories = await getCategories().catch(() => []);
+  const products = await getProducts().catch(() => []);
 
   return (
     <html lang='bn' data-theme='bazar' className={notoBengali.variable}>
       <body className='flex min-h-screen flex-col'>
         <Navbar categories={categories} />
-        <main className='flex-1'>{children}</main>
+        <PriceTicker products={products} />
+        <main className='mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:py-8'>
+          {children}
+        </main>
+        <Footer />
+        <Toaster position='top-center' />
       </body>
     </html>
   );
