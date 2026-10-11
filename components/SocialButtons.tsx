@@ -26,7 +26,7 @@ export default function SocialButtons({ next = '/' }: { next?: string }) {
         type='button'
         onClick={() => handleClick('google')}
         disabled={loading !== ''}
-        className='btn btn-outline'
+        className='btn btn-outline h-auto min-h-12 py-3 gap-2 leading-snug'
       >
         <svg width='18' height='18' viewBox='0 0 48 48' aria-hidden='true'>
           <path
@@ -53,7 +53,7 @@ export default function SocialButtons({ next = '/' }: { next?: string }) {
         type='button'
         onClick={() => handleClick('github')}
         disabled={loading !== ''}
-        className='btn btn-outline'
+        className='btn btn-outline h-auto min-h-12 py-3 gap-2 leading-snug'
       >
         <GitBranch size={18} />
         {loading === 'github' ? 'অপেক্ষা করুন…' : 'GitHub দিয়ে চালিয়ে যান'}
