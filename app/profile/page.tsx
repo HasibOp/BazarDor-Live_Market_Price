@@ -19,6 +19,7 @@ export default async function ProfilePage() {
 
       <div className="mt-6 flex flex-col items-center gap-3 text-center">
         {user.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img src={user.image} alt="" className="h-24 w-24 rounded-full object-cover" />
         ) : (
           <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary text-4xl font-bold text-white">
