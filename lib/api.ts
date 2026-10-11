@@ -1,5 +1,4 @@
-// Fetches data from the BazarDor API.
-// If the main server is down, we try the backup servers.
+
 import type { Category, Product } from "./types";
 
 const API_HOSTS = [
@@ -15,7 +14,6 @@ async function getJson<T>(path: string): Promise<T> {
       const res = await fetch(host + path, { next: { revalidate: 300 } });
       if (res.ok) return await res.json();
     } catch {
-      // try the next host
     }
   }
   throw new Error("API থেকে ডেটা আনা যায়নি");
